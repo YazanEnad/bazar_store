@@ -8,7 +8,10 @@ import math
 app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_FILE = os.path.join(BASE_DIR, "catalog.db")
+DB_FILE = os.getenv(
+    "CATALOG_DB_PATH",
+    os.path.join(BASE_DIR, "catalog.db")
+)
 
 
 @contextmanager

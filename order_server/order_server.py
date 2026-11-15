@@ -14,7 +14,10 @@ CATALOG_SERVER_URL = os.getenv(
 ).rstrip("/")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_FILE = os.path.join(BASE_DIR, "orders.db")
+DB_FILE = os.getenv(
+    "ORDER_DB_PATH",
+    os.path.join(BASE_DIR, "orders.db")
+)
 
 
 def init_db():
